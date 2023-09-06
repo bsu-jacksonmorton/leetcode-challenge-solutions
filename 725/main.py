@@ -16,25 +16,15 @@ class Solution:
         numNodesPer = n // k
         outliers = n % k
         res = []
-        curr = head
-
-        for i in range(outliers):
+        curr = head        
+        for i in range(k):
             res.append(curr)
-            for j in range(numNodesPer):
+            for j in range(numNodesPer - (0 if outliers > 0 else 1)):
                 if curr:
                     curr = curr.next
             if curr:
                 tmp = curr.next
                 curr.next = None
                 curr = tmp
-        
-        for i in range(outliers, k):
-            res.append(curr)
-            for j in range(numNodesPer - 1):
-                if curr:
-                    curr = curr.next
-            if curr:
-                tmp = curr.next
-                curr.next = None
-                curr = tmp
+            outliers -= 1
         return res
