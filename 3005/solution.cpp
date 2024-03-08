@@ -5,7 +5,7 @@ public:
 		My approach uses a simple array of integers to store the frequencies and I maintain a list of members that have the max frequency as I count.
 		This allows for a quick and efficient single-pass through the array.
 		O(n) - Runtime
-		O(1) - Space
+		O(n) - Space
 	*/
     int maxFrequencyElements(vector<int>& nums) {
         int maxVal = 0;
